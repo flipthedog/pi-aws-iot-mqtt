@@ -1,0 +1,6 @@
+awscrt
+awsiotsdk
+numpy
+importlib
+gpiozero
+pyyaml
