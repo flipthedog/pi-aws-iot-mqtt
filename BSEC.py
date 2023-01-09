@@ -88,7 +88,7 @@ class BSEC:
         endtime = starttime
 
         data = self.get_data()
-        print(data)
+        # print(data)
         
         if data is not None and data != {}:
             self.publish_to_aws(data)
