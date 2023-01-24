@@ -11,6 +11,7 @@ from AWSMQTTConnector import AWSMQTTConnector
 from datetime import datetime
 import yaml
 import time
+import json
 
 from threading import Timer
 
@@ -88,7 +89,7 @@ class BSEC:
         endtime = starttime
 
         data = self.get_data()
-        # print(data)
+        print(json.dumps(data))
         
         if data is not None and data != {}:
             self.publish_to_aws(data)
