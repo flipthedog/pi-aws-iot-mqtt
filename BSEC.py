@@ -29,9 +29,11 @@ class BSEC:
         # self.bme.set_heatr_conf(cst.BME68X_FORCED_MODE, 320, 100, cst.BME68X_ENABLE)
         self.bme.set_sample_rate(bsec.BSEC_SAMPLE_RATE_LP)
 
+        # Brief wait before starting publishing loop
         time.sleep(3)
 
-        self.t = RepeatTimer(5, self.publish_loop)
+        self.interval = 60 # interval time in seconds
+        self.t = RepeatTimer(self.interval, self.publish_loop)
         self.t.start()
 
     def get_data(self):
@@ -51,6 +53,8 @@ class BSEC:
                 return None
 
             time.sleep(0.1)
+
+        data['timestamp'] = str(datetime.now())
 
         return data
     

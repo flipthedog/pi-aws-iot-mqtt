@@ -5,6 +5,7 @@ build/
 virtual/
 data/
 auth/
+logs/
 *.conf
 
 # Byte-compiled / optimized / DLL files
