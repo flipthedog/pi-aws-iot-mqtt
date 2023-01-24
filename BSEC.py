@@ -12,6 +12,7 @@ from datetime import datetime
 import yaml
 import time
 import json
+import os
 
 from threading import Timer
 
@@ -19,8 +20,10 @@ class BSEC:
 
     def __init__(self) -> None:
         
+        current_cwd = "/home/pi/Projects/atm_logger"
+
         # Load YAML config file
-        with open("aws_details.conf", mode="rt", encoding="utf-8") as file:
+        with open(current_cwd + "/aws_details.conf", mode="rt", encoding="utf-8") as file:
             self.aws_config = yaml.safe_load(file)
 
         self.aws_con = AWSMQTTConnector(self.aws_config["endpoint"])

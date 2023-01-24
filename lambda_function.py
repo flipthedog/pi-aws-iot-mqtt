@@ -33,7 +33,12 @@ def lambda_handler(event, context):
         'Time': str(int(time.mktime(d.timetuple())) * 1000 + d.microsecond),
         'TimeUnit': 'MILLISECONDS',
         'MeasureValues': [
-                         {
+                    {
+                        'Name': 'local_timestamp',
+                        'Value': str(event['timestamp']),
+                        'Type': 'VARCHAR',
+                    },
+                    {
                         'Name': 'sample_nr',
                         'Value': str(event['sample_nr']),
                         'Type': 'BIGINT',

@@ -24,7 +24,7 @@ class AWSMQTTConnector():
         region = "us-east-2",
         count = 0):
 
-        current_cwd = os.getcwd()
+        current_cwd = "/home/pi/Projects/atm_logger"
 
         self.endpoint = endpoint
         self.ca_file = current_cwd + "/auth/" + ca_file
